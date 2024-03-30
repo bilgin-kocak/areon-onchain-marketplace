@@ -65,7 +65,7 @@ export const getAsks = async () => {
     return tokens;
   } catch (error) {
     console.error(error);
-    return 0;
+    return [];
   }
 };
 
