@@ -432,3 +432,13 @@ export const settleAuction = async (address, provider, tokenId) => {
   );
   await tx.wait();
 };
+
+export const getOwner = async (signer) => {
+  const hroContract = new ethers.Contract(
+    TEST_NFT_CONTRACT_ADDRESS,
+    hroabi,
+    signer
+  );
+
+  return await hroContract.owner();
+};

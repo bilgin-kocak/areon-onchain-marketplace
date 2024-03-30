@@ -12,6 +12,8 @@ import { useDispatch } from 'react-redux';
 import { showPropatiesModal } from '../../redux/counterSlice';
 import Meta from '../../components/Meta';
 import Image from 'next/image';
+import { getOwner } from '../../utils/contractMethods';
+import { useSigner } from '@thirdweb-dev/react';
 
 const Create = () => {
   const fileTypes = [
@@ -28,11 +30,20 @@ const Create = () => {
     'GLTF',
   ];
   const [file, setFile] = useState('');
+  const signer = useSigner();
 
   const dispatch = useDispatch();
 
   const handleChange = (file) => {
     setFile(file.name);
+  };
+
+  const handleCreate = async () => {
+    const owner = await getOwner(signer);
+    if (owner !== signer._address) {
+      alert('You are not the owner of the contract');
+      return;
+    }
   };
 
   const popupItemData = [
@@ -475,8 +486,8 @@ const Create = () => {
 
             {/* <!-- Submit --> */}
             <button
-              disabled
-              className="bg-accent-lighter cursor-default rounded-full py-3 px-8 text-center font-semibold text-white transition-all"
+              className="bg-accent-lighter cursor-default rounded-full py-3 px-8 text-center font-semibold text-white transition-all hover:bg-accent-light hover:cursor-pointer"
+              onClick={handleCreate}
             >
               Create
             </button>
