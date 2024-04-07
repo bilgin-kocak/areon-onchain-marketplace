@@ -165,7 +165,7 @@ const project: EthereumProject = {
       options: {
         // Must be a key of assets
         abi: 'erc721',
-        address: '0x3ee41873Bb737D204C746d155ABf9A2Ea2636B8B',
+        address: '0x41aF21c0aD29668aD41d3d39efAFD1e3f93E0e4a',
       },
       assets: new Map([
         ['erc20', { file: './abis/erc20.abi.json' }],

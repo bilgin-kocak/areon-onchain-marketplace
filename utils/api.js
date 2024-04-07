@@ -8,7 +8,8 @@ export const getAsks = async () => {
     const {
       data: { data },
     } = await axios.post(
-      'https://api.subquery.network/sq/bilgin-kocak/areon-marketplace',
+      // 'https://api.subquery.network/sq/bilgin-kocak/areon-marketplace',
+      'https://api.subquery.network/sq/bilgin-kocak/dene',
       {
         query: `query {asks (first: 25) {
           nodes {
@@ -73,7 +74,8 @@ export const getUserNfts = async (walletAdress) => {
   const {
     data: { data },
   } = await axios.post(
-    'https://api.subquery.network/sq/bilgin-kocak/areon-marketplace',
+    // 'https://api.subquery.network/sq/bilgin-kocak/areon-marketplace',
+    'https://api.subquery.network/sq/bilgin-kocak/dene',
     {
       query: `query {
             nfts(first: 25, filter: {owner: {equalTo: "${walletAdress}"}}) {
@@ -132,7 +134,8 @@ export const getAllNfts = async () => {
   const {
     data: { data },
   } = await axios.post(
-    'https://api.subquery.network/sq/bilgin-kocak/areon-marketplace',
+    // 'https://api.subquery.network/sq/bilgin-kocak/areon-marketplace',
+    'https://api.subquery.network/sq/bilgin-kocak/dene',
     {
       query: `query {
             nfts(first: 25) {
